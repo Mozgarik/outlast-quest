@@ -1,209 +1,209 @@
 .qualitatSection {
-    width: 1200px;
-    margin: auto;
-    padding-bottom: 100px;
-    border-bottom: 1px rgb(153, 236, 188) solid;
+  width: 1200px;
+  margin: auto;
+  padding-bottom: 100px;
+  border-bottom: 1px rgb(153, 236, 188) solid;
 }
 
 .qualitatList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.qualitatImg {
+  width: 100px;
+  height: 100px;
+}
+
+.qualitatItem {
+  width: 300px;
+}
+
+.why {
+  color: rgb(209, 255, 224);
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 60px;
+}
+
+.qualitatTittle {
+  color: rgb(101, 168, 129);
+}
+
+.qualitatDesc {
+  color: rgb(255, 255, 255);
+}
+
+/* Стили для экранов от 1200px до 1399px */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .qualitatSection {
+    width: 1100px;
+    margin: auto;
+    padding-bottom: 100px;
+    border-bottom: 1px rgb(153, 236, 188) solid;
+  }
+
+  .qualitatList {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-}
+  }
 
-.qualitatImg {
-    width: 100px;
-    height: 100px;
-}
+  .qualitatImg {
+    width: 95px;
+    height: 95px;
+  }
 
-.qualitatItem {
-    width: 300px;
-}
+  .qualitatItem {
+    width: 250px;
+  }
 
-.why {
+  .why {
     color: rgb(209, 255, 224);
     text-align: center;
     margin-top: 100px;
     margin-bottom: 100px;
     font-size: 60px;
-}
+  }
 
-.qualitatTittle {
+  .qualitatTittle {
     color: rgb(101, 168, 129);
-}
+  }
 
-.qualitatDesc {
+  .qualitatDesc {
     color: rgb(255, 255, 255);
-}
-
-/* Стили для экранов от 1200px до 1399px */
-@media screen and (min-width: 1200px) and (max-width: 1399px) {
-    .qualitatSection {
-        width: 1100px;
-        margin: auto;
-        padding-bottom: 100px;
-        border-bottom: 1px rgb(153, 236, 188) solid;
-    }
-
-    .qualitatList {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .qualitatImg {
-        width: 95px;
-        height: 95px;
-    }
-
-    .qualitatItem {
-        width: 250px;
-    }
-
-    .why {
-        color: rgb(209, 255, 224);
-        text-align: center;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        font-size: 60px;
-    }
-
-    .qualitatTittle {
-        color: rgb(101, 168, 129);
-    }
-
-    .qualitatDesc {
-        color: rgb(255, 255, 255);
-    }
+  }
 }
 
 /* Стили для экранов от 768px до 1199px */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-    .qualitatSection {
-        width: 100%;
-        margin: auto;
-        padding-bottom: 30px;
-        border-bottom: 1px rgb(153, 236, 188) solid;
-    }
+  .qualitatSection {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 30px;
+    border-bottom: 1px rgb(153, 236, 188) solid;
+  }
 
-    .qualitatList {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        flex-wrap: wrap;
-        margin: auto;
-        list-style: none;
-        justify-content: space-between;
-        padding: 0px;
-    }
+  .qualitatList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: auto;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0px;
+  }
 
-    .qualitatImg {
-        display: block;
-        margin: auto;
-        width: 100px;
-        height: 100px;
-    }
+  .qualitatImg {
+    display: block;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+  }
 
-    .qualitatItem {
-        width: 280px;
-        margin: 40px auto;
-    }
+  .qualitatItem {
+    width: 280px;
+    margin: 40px auto;
+  }
 
-    .why {
-        color: rgb(209, 255, 224);
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 30px;
-        font-size: 25px;
-    }
+  .why {
+    color: rgb(209, 255, 224);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
 
-    .qualitatTittle {
-        color: rgb(101, 168, 129);
-        font-size: 15px;
-        text-align: center;
-    }
+  .qualitatTittle {
+    color: rgb(101, 168, 129);
+    font-size: 15px;
+    text-align: center;
+  }
 
-    .qualitatDesc {
-        color: rgb(255, 255, 255);
-        font-size: 15px;
-        line-height: 1px;
-    }
+  .qualitatDesc {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    line-height: 1px;
+  }
 }
 
 /* Стили для мобильных устройств (до 768px) */
 @media screen and (max-width: 767px) {
-    .qualitatSection {
-        width: 100%;
-        margin: auto;
-        padding-bottom: 20px;
-        border-bottom: 1px rgb(153, 236, 188) solid;
-    }
+  .qualitatSection {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px rgb(153, 236, 188) solid;
+  }
 
-    .qualitatList {
-        list-style: none;
-        justify-content: space-between;
-        padding: 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .qualitatList {
+    list-style: none;
+    justify-content: space-between;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .qualitatImg {
-        display: block;
-        margin: auto;
-        width: 50px;
-        height: 50px;
-    }
+  .qualitatImg {
+    display: block;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+  }
 
-    .qualitatItem {
-        width: 250px;
-        margin: 40px auto;
-    }
+  .qualitatItem {
+    width: 250px;
+    margin: 40px auto;
+  }
 
-    .why {
-        color: rgb(209, 255, 224);
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 30px;
-        font-size: 25px;
-    }
+  .why {
+    color: rgb(209, 255, 224);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
 
-    .qualitatTittle {
-        color: rgb(101, 168, 129);
-        font-size: 15px;
-        text-align: center;
-    }
+  .qualitatTittle {
+    color: rgb(101, 168, 129);
+    font-size: 15px;
+    text-align: center;
+  }
 
-    .qualitatDesc {
-        color: rgb(255, 255, 255);
-        font-size: 15px;
-        line-height: 1px;
-    }
+  .qualitatDesc {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    line-height: 1px;
+  }
 }
 
 /* Пустой медиазапрос для экранов от 1400px */
 @media screen and (min-width: 1400px) {
-    .qualitatSection {
-        width: 1330px;
-    }
-    .qualitatList {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 1330px;
-    }
+  .qualitatSection {
+    width: 1330px;
+  }
+  .qualitatList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1330px;
+  }
 
-    .qualitatImg {
-        width: 100px;
-        height: 100px;
-    }
+  .qualitatImg {
+    width: 100px;
+    height: 100px;
+  }
 
-    .qualitatItem {
-        width: 300px;
-    }
+  .qualitatItem {
+    width: 300px;
+  }
 }

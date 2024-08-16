@@ -16,41 +16,40 @@ const comments = [
   {
     name: 'Виктор Тучемский',
     date: '02.11.2022',
-    comment: 'Один из самых крутых квестов в Одессе, очень крутая игра актёров, загадки на уровне. Всем советую)',
-    grade: "4.9",
+    comment:
+      'Один из самых крутых квестов в Одессе, очень крутая игра актёров, загадки на уровне. Всем советую)',
+    grade: '4.9',
   },
   {
     name: 'Лера Герман',
     date: '20.10.2022',
     comment: '10000/10',
-    grade: "4.8",
+    grade: '4.8',
   },
   {
     name: 'I am',
     date: '06.08.2023',
     comment: 'Очень понравилось , всем советую!!',
-    grade: "4.6",
+    grade: '4.6',
   },
   {
     name: 'Валерия Holovatuk',
     date: '23.09.2023',
-    comment:
-      'Спасибо за офигенные эмоциии!!!',
-    grade: "5",
+    comment: 'Спасибо за офигенные эмоциии!!!',
+    grade: '5',
   },
   {
     name: 'Алексей Серов',
     date: '12.04.2023',
     comment:
       'Персонал дружелюбный, атмосферность на уровне, довольно стремно)) квест понравился)',
-    grade: "4.5",
+    grade: '4.5',
   },
   {
     name: 'Денис',
     date: '22.02.2023',
-    comment:
-      "Все кайф, игра на высоте",
-    grade: "4.9",
+    comment: 'Все кайф, игра на высоте',
+    grade: '4.9',
   },
 ];
 
@@ -111,7 +110,7 @@ export default function PikaSimpleSlider() {
               Вiдгуки
             </button>
             <button className={s.button} onClick={() => openModal('other')}>
-            Відео-відгуки
+              Відео-відгуки
             </button>
           </div>
         </div>
@@ -177,18 +176,18 @@ export default function PikaSimpleSlider() {
         overlayClassName={s.overlay}
       >
         <Slider {...settings} className={s.slider}>
-        {videoList.map((video, index) => (
-          <div key={index}>
-            <iframe
-              className={s.video}
-              src={video.url}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={`YouTube video ${index}`}
-            />
-          </div>
-        ))}
+          {videoList.map((video, index) => (
+            <div key={index}>
+              <iframe
+                className={s.video}
+                src={video.url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`YouTube video ${index}`}
+              />
+            </div>
+          ))}
         </Slider>
       </Modal>
     </div>

@@ -80,7 +80,7 @@ export default function Proklatie() {
         </div>
       </div>
 
-      <CircSimpleSlider/>
+      <CircSimpleSlider />
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>

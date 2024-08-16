@@ -13,7 +13,6 @@ import img4 from '../../../img/Slider/monahPhoto/monah4.png';
 import img5 from '../../../img/Slider/monahPhoto/IMG_0353.png';
 import { nanoid } from 'nanoid';
 
-
 const images = [img1, img2, img3, img4, img5];
 const comments = [
   {
@@ -73,7 +72,6 @@ const videoList = [
   },
 ];
 
-
 Modal.setAppElement('#root');
 
 export default function MonahSimpleSlider() {
@@ -116,7 +114,7 @@ export default function MonahSimpleSlider() {
               Вiдгуки
             </button>
             <button className={s.button} onClick={() => openModal('other')}>
-            Відео-відгуки
+              Відео-відгуки
             </button>
           </div>
         </div>
@@ -182,18 +180,18 @@ export default function MonahSimpleSlider() {
         overlayClassName={s.overlay}
       >
         <Slider {...settings} className={s.slider}>
-        {videoList.map((video, index) => (
-          <div key={index}>
-            <iframe
-              className={s.video}
-              src={video.url}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={`YouTube video ${index}`}
-            />
-          </div>
-        ))}
+          {videoList.map((video, index) => (
+            <div key={index}>
+              <iframe
+                className={s.video}
+                src={video.url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`YouTube video ${index}`}
+              />
+            </div>
+          ))}
         </Slider>
       </Modal>
     </div>

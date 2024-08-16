@@ -1,3 +1,3 @@
 export default function Button() {
-    return <button>Click</button>
+  return <button>Click</button>;
 }

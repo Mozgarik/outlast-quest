@@ -1,14 +1,14 @@
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import s from "./Pika.module.css";
-import time from "../../img/advanstage/time.svg";
-import actor from "../../img/advanstage/actor.svg";
-import creepy from "../../img/advanstage/creepy.svg";
-import doubble from "../../img/advanstage/doubble.svg";
-import PikaBookingCalendar from "../../Components/Calendar/PikaCalendar/PikaCalendar";
-import { Link } from "react-scroll"; // Импортируем библиотеку
-import { useEffect } from "react";
-import PikaSimpleSlider from "Components/Slider/pikaSlider/PikaSlider";
+import Footer from '../../Components/Footer/Footer';
+import Header from '../../Components/Header/Header';
+import s from './Pika.module.css';
+import time from '../../img/advanstage/time.svg';
+import actor from '../../img/advanstage/actor.svg';
+import creepy from '../../img/advanstage/creepy.svg';
+import doubble from '../../img/advanstage/doubble.svg';
+import PikaBookingCalendar from '../../Components/Calendar/PikaCalendar/PikaCalendar';
+import { Link } from 'react-scroll'; // Импортируем библиотеку
+import { useEffect } from 'react';
+import PikaSimpleSlider from 'Components/Slider/pikaSlider/PikaSlider';
 
 export default function Proklatie() {
   const currentDate1 = new Date().getDate();
@@ -17,7 +17,7 @@ export default function Proklatie() {
   const currentDate4 = new Date().getDate() + 3;
   const currentDate5 = new Date().getDate() + 4;
 
-  const questName = "pika";
+  const questName = 'pika';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,20 +64,20 @@ export default function Proklatie() {
               Мiсто: <span className={s.contactDesc}>Одеса</span>
             </li>
             <li className={s.questContactItem}>
-              Адреса:{" "}
+              Адреса:{' '}
               <span className={s.contactDesc}>
-              Асташкіна 1 , район Приморський
-              </span>{" "}
+                Асташкіна 1 , район Приморський
+              </span>{' '}
             </li>
             <li className={s.questContactItem}>
-              Номер телефону:{" "}
+              Номер телефону:{' '}
               <span className={s.contactDesc}>+380 99 516 91 66</span>
             </li>
           </ul>
         </div>
       </div>
 
-      <PikaSimpleSlider/>
+      <PikaSimpleSlider />
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>

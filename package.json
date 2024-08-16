@@ -72,18 +72,18 @@
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-  "extends": [
-    "react-app",
-    "react-app/jest",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": [
-    "prettier"
-  ],
-  "rules": {
-    "prettier/prettier": "error"
-  }
-},
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",

@@ -3,18 +3,18 @@ import s from './Footer.module.css';
 import inst from '../../img/inst.svg';
 import phone from '../../img/phone.svg';
 import email from '../../img/mail.svg';
-import tikTok from '../../img/tiktok2.svg'
+import tikTok from '../../img/tiktok2.svg';
 
 export default function Footer() {
   return (
     <footer>
       <div className={s.footerSection}>
-      <a className={s.hLink} href="/">
-        <div className={s.logotype}>
-          <Logo className={s.logo} />
-          <span className={s.outlast}>Outlast</span>
-        </div>
-      </a>
+        <a className={s.hLink} href="/">
+          <div className={s.logotype}>
+            <Logo className={s.logo} />
+            <span className={s.outlast}>Outlast</span>
+          </div>
+        </a>
         <div className={s.contacts}>
           <ul className={s.contactsList}>
             <li className={s.contactItem}>

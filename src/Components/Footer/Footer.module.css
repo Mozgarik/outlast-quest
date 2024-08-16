@@ -1,152 +1,145 @@
 @media screen and (max-width: 767px) {
+  .logotype {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+  }
 
-    .logotype {
-        color: rgb(255, 255, 255);
-        font-size: 20px;
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 700;
-        font-style: normal;
-        display: flex;
-        align-items: center;
-    }
+  footer {
+    background-color: rgb(74, 110, 94);
+    opacity: 0.8;
+  }
 
-    footer {
-        background-color: rgb(74, 110, 94);
-        opacity: 0.8;
-    }
+  .instIcon {
+    width: 25px;
+    height: 25px;
+  }
 
-    .instIcon {
-        width: 25px;
-        height: 25px;
-    }
+  .contactsList {
+    display: flex;
+    list-style: none;
+    padding: 0px;
+  }
 
-    .contactsList {
-        display: flex;
-        list-style: none;
-        padding: 0px;
-    }
+  .contactItem {
+    margin-right: 10px;
+  }
 
-    .contactItem {
-        margin-right: 10px;
-    }
-
-    .footerSection {
-        height: 150px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: auto;
-    }
+  .footerSection {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
 }
 
 .instIconTik {
-    transition: 0.5s;
-    padding-top: 1px;
-    width: 22px;
-    height: 22px;
+  transition: 0.5s;
+  padding-top: 1px;
+  width: 22px;
+  height: 22px;
 }
 
 .instIconTik:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
-
-
 
 /* tablet */
 
 @media screen and (min-width: 768px) {
+  .logotype {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+  }
 
-    .logotype {
-        color: rgb(255, 255, 255);
-        font-size: 20px;
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 700;
-        font-style: normal;
-        display: flex;
-        align-items: center;
-    }
+  footer {
+    background-color: rgb(74, 110, 94);
+    opacity: 0.8;
+  }
 
-    footer {
-        background-color: rgb(74, 110, 94);
-        opacity: 0.8;
-    }
+  .instIcon {
+    width: 25px;
+    height: 25px;
+  }
 
-    .instIcon {
-        width: 25px;
-        height: 25px;
-    }
+  .contactsList {
+    display: flex;
+    list-style: none;
+  }
 
-    .contactsList {
-        display: flex;
-        list-style: none;
-    }
+  .contactItem {
+    margin-right: 30px;
+  }
 
-    .contactItem {
-        margin-right: 30px;
-    }
-
-    .footerSection {
-        height: 150px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: auto;
-    }
+  .footerSection {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
 }
-
 
 /* desctop */
 
-
 @media screen and (min-width: 1399px) {
-    .logotype {
-        color: rgb(255, 255, 255);
-        font-size: 30px;
-        font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 800;
-        font-style: normal;
-        display: flex;
-        align-items: center;
-    }
+  .logotype {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+  }
 
-    footer {
-        background-color: #4a6e5e;
-        opacity: 0.8;
-    }
+  footer {
+    background-color: #4a6e5e;
+    opacity: 0.8;
+  }
 
-    .instIcon {
-        width: 30px;
-        height: 30px;
-    }
+  .instIcon {
+    width: 30px;
+    height: 30px;
+  }
 
-    .contactsList {
-        display: flex;
-        list-style: none;
-    }
+  .contactsList {
+    display: flex;
+    list-style: none;
+  }
 
-    .contactItem {
-        margin-right: 30px;
-    }
+  .contactItem {
+    margin-right: 30px;
+  }
 
-    .footerSection {
-        height: 200px;
-        width: 1400px;
+  .footerSection {
+    height: 200px;
+    width: 1400px;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: auto;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
 
-    
-    .instIconTik {
-        padding-top: 2px;
-        width: 25px;
-        height: 25px;
-    }
+  .instIconTik {
+    padding-top: 2px;
+    width: 25px;
+    height: 25px;
+  }
 }

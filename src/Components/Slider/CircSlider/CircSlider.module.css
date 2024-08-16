@@ -1,4 +1,3 @@
-
 .slider {
   width: 600px;
   text-align: center;
@@ -43,7 +42,9 @@
   width: 200px;
   border: 1px solid gray;
   box-shadow: 5px 5px 5px -3px #000000;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .button:hover {
@@ -170,49 +171,47 @@
   background-color: #969696;
 }
 
-
 .video {
   width: 100%;
   height: 800px;
 }
 
-
 /* Для больших экранов */
 @media (min-width: 1400px) and (max-width: 1600px) {
   .sliderSection {
-      width: 1400px;
+    width: 1400px;
   }
 }
 
 /* Для средних экранов */
 @media (min-width: 1200px) and (max-width: 1400px) {
   .sliderSection {
-      width: 1200px;
+    width: 1200px;
   }
-  
-.video {
-  width: 100%;
-  height: 700px;
-}
+
+  .video {
+    width: 100%;
+    height: 700px;
+  }
 }
 
 /* Для планшетов */
 @media (min-width: 768px) and (max-width: 1200px) {
   .sliderSection {
-      flex-direction: column;
-      width: 85%;
-      padding: 20px;
-      margin-top: 0px 
+    flex-direction: column;
+    width: 85%;
+    padding: 20px;
+    margin-top: 0px;
   }
 
   .buttonContainer {
-      flex-direction: row;
-      width: 100%;
+    flex-direction: row;
+    width: 100%;
   }
 
   .button {
-      width: 100%;
-      max-width: 150px;
+    width: 100%;
+    max-width: 150px;
   }
 
   .video {
@@ -224,8 +223,8 @@
 /* Для мобильных устройств */
 @media (max-width: 767px) {
   .slider {
-      width: 320px;
-      text-align: center;
+    width: 320px;
+    text-align: center;
   }
 
   .video {
@@ -234,53 +233,53 @@
   }
 
   .sliderSection {
-      flex-direction: column;
-      width: 80%;
-      padding: 10px;
-      margin-top: 0px;
+    flex-direction: column;
+    width: 80%;
+    padding: 10px;
+    margin-top: 0px;
   }
 
   .sliderTitle {
-      font-size: 24px;
-      padding-top: 20px;
-      margin-bottom: 40px;
+    font-size: 24px;
+    padding-top: 20px;
+    margin-bottom: 40px;
   }
 
   .commentSlide {
-      display: flex;
-      flex-direction: column;
-      width: 90%;
-      padding: 10px;
-      height: auto;
-      justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+    height: auto;
+    justify-content: space-around;
   }
 
   .commentText {
-      width: 80%;
+    width: 80%;
   }
 
   .buttonContainer {
-      flex-direction: column;
-      width: 100%;
-      align-items: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
 
   .button {
-      width: 100%;
-      max-width: 200px;
-      margin-top: 40px;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 40px;
   }
 
   .commentFooter {
-      display: block;
+    display: block;
   }
 
   .commentConfirm {
-      margin: auto;
-      margin-bottom: 23px;
+    margin: auto;
+    margin-bottom: 23px;
   }
 
   .advantagesImg {
-      width: 200px;
+    width: 200px;
   }
 }

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;  
+  margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 100px;
   background-color: rgb(49, 49, 49);
@@ -14,7 +14,6 @@
   margin: auto;
   margin-bottom: 100px;
 }
-
 
 /* Заголовок календаря */
 .calendarTittle {
@@ -64,13 +63,14 @@
   border: 1px solid gray;
   box-shadow: 5px 5px 5px -3px #000000;
   width: 130px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .weekendTimeSlot {
   background-color: rgb(26, 133, 97);
 }
-
 
 .timeSlot.booked {
   background-color: rgb(139, 139, 139);
@@ -105,7 +105,6 @@
   padding: 20px; /* Добавлено для отступов внутри модального окна */
 }
 
-
 form {
   margin-top: 0px;
 }
@@ -123,13 +122,12 @@ form {
   justify-content: center;
   align-items: center; /* Центрирование модального окна по вертикали */
   overflow-y: auto;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 body.modalOpen {
   background-color: #000000;
 }
-
 
 /* Кнопка закрытия модального окна */
 .modalClose {
@@ -146,7 +144,7 @@ body.modalOpen {
   border-bottom: 4px solid #ffb5b5;
   color: rgb(255, 255, 255);
   font-size: 14px;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 /* Форма */
@@ -164,9 +162,9 @@ form {
   width: 700px;
 }
 
-
-.formLeftDecoration, .formRightDecoration {
-  content: "";
+.formLeftDecoration,
+.formRightDecoration {
+  content: '';
   position: absolute;
   width: 50px;
   height: 20px;
@@ -184,8 +182,11 @@ form {
   right: -30px;
 }
 
-.formLeftDecoration:before, .formLeftDecoration:after, .formRightDecoration:before, .formRightDecoration:after {
-  content: "";
+.formLeftDecoration:before,
+.formLeftDecoration:after,
+.formRightDecoration:before,
+.formRightDecoration:after {
+  content: '';
   position: absolute;
   width: 50px;
   height: 20px;
@@ -237,19 +238,20 @@ form {
   color: #ffffff;
 }
 
-.formInner input, .formInner textarea {
+.formInner input,
+.formInner textarea {
   display: block;
   width: 90%;
   padding: 0 20px;
   margin-bottom: 10px;
-  background: #E9EFF6;
+  background: #e9eff6;
   line-height: 40px;
   border-width: 0;
   border-radius: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
-.formInner input[type="submit"] {
+.formInner input[type='submit'] {
   margin-top: 30px;
   width: 100%;
   background: #38b394;
@@ -371,7 +373,7 @@ form {
     padding-right: 50px;
     width: 85%;
   }
-  
+
   .after-open .modal {
     max-height: fit-content;
     margin-top: 0px;
@@ -408,7 +410,6 @@ form {
 
 /* Для мобильных устройств */
 @media (max-width: 767px) {
-
   .modal {
     margin-top: 150px;
     margin-bottom: 20px;
@@ -484,5 +485,4 @@ form {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-
 }

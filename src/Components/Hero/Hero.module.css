@@ -1,148 +1,148 @@
 @media screen and (max-width: 767px) {
-    .opas {
-        width: 100%;
-        height: 500px;
-        background-image: url(../../img/ai-generated-8661949_1920.jpg);
-        background-size: cover;
-        background-position: center;
-        opacity: 0.6;
-    }
+  .opas {
+    width: 100%;
+    height: 500px;
+    background-image: url(../../img/ai-generated-8661949_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+  }
 
-    .heroTittle {
-        font-family: "Anton", cursive, sans-serif;
-        font-style: normal;
-        font-size: 30px;
-        font-weight: 900;
-        text-align: center;
-        color: rgb(255, 255, 255);
-        letter-spacing: 20px;
-        padding-top: 50%;
-        margin-top: 0px;
-    }
+  .heroTittle {
+    font-family: 'Anton', cursive, sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    letter-spacing: 20px;
+    padding-top: 50%;
+    margin-top: 0px;
+  }
 
-    .heroButton {
-        border: none;
-        outline: none;
-        display: block;
-        padding: 10px 20px;
-        margin: 80px auto;
-        border-radius: 20px;
-        font-size: 15px;
-        font-weight: 600;
-        background-color: rgb(213, 255, 232);
-        color: rgb(52, 80, 69);
-    }
+  .heroButton {
+    border: none;
+    outline: none;
+    display: block;
+    padding: 10px 20px;
+    margin: 80px auto;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: rgb(213, 255, 232);
+    color: rgb(52, 80, 69);
+  }
 }
 
 /* tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-    .opas {
-        width: 100%;
-        height: 500px;
-        background-image: url(../../img/ai-generated-8661949_1920.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        opacity: 0.6;
-    }
+  .opas {
+    width: 100%;
+    height: 500px;
+    background-image: url(../../img/ai-generated-8661949_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.6;
+  }
 
-    .heroTittle {
-        font-family: "Anton", cursive;
-        font-style: normal;
-        font-size: 50px;
-        text-align: center;
-        color: white;
-        letter-spacing: 50px;
-        padding-top: 20%;
-        margin-top: 0px;
-    }
+  .heroTittle {
+    font-family: 'Anton', cursive;
+    font-style: normal;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    letter-spacing: 50px;
+    padding-top: 20%;
+    margin-top: 0px;
+  }
 
-    .heroButton {
-        border: none;
-        outline: none;
-        display: block;
-        padding: 10px 20px;
-        margin: 90px auto;
-        border-radius: 20px;
-        font-size: 15px;
-        font-weight: 700;
-        background-color: rgb(213, 255, 232);
-        color: rgb(52, 80, 69);
-    }
+  .heroButton {
+    border: none;
+    outline: none;
+    display: block;
+    padding: 10px 20px;
+    margin: 90px auto;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: rgb(213, 255, 232);
+    color: rgb(52, 80, 69);
+  }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
-    .opas {
-        width: 100%;
-        height: 800px;
-        background-image: url(../../img/ai-generated-8661949_1920.jpg);
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position-y: -150px;
-        opacity: 0.6;
-    }
+  .opas {
+    width: 100%;
+    height: 800px;
+    background-image: url(../../img/ai-generated-8661949_1920.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -150px;
+    opacity: 0.6;
+  }
 
-    .heroTittle {
-        margin: 0px;
-        margin-left: 150px;
-        padding-top: 13%;
-        text-align: center;
-        color: rgb(242, 250, 244);
-        font-weight: 600;
-        font-size: 120px;
-        letter-spacing: 50px;
-        font-family: "Anton", cursive;
-        font-style: normal;
-    }
+  .heroTittle {
+    margin: 0px;
+    margin-left: 150px;
+    padding-top: 13%;
+    text-align: center;
+    color: rgb(242, 250, 244);
+    font-weight: 600;
+    font-size: 120px;
+    letter-spacing: 50px;
+    font-family: 'Anton', cursive;
+    font-style: normal;
+  }
 
-    .heroButton {
-        border: none;
-        outline: none;
-        display: block;
-        margin: 200px auto;
-        padding: 20px 40px;
-        border-radius: 20px;
-        font-size: 25px;
-        font-weight: 700;
-        background-color: rgb(213, 255, 232);
-        color: rgb(52, 80, 69);
-    }
+  .heroButton {
+    border: none;
+    outline: none;
+    display: block;
+    margin: 200px auto;
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: rgb(213, 255, 232);
+    color: rgb(52, 80, 69);
+  }
 }
 
 /* пустой медиазапрос для экранов от 1400px */
 @media screen and (min-width: 1400px) {
-    .opas {
-        width: 100%;
-        height: 1000px;
-        background-image: url(../../img/ai-generated-8661949_1920.jpg);
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position-y: -150px;
-        opacity: 0.6;
-    }
+  .opas {
+    width: 100%;
+    height: 1000px;
+    background-image: url(../../img/ai-generated-8661949_1920.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: -150px;
+    opacity: 0.6;
+  }
 
-    .heroTittle {
-        margin: 0px;
-        margin-left: 150px;
-        padding-top: 13%;
-        text-align: center;
-        color: rgb(242, 250, 244);
-        font-weight: 600;
-        font-size: 120px;
-        letter-spacing: 50px;
-        font-family: "Anton", cursive;
-        font-style: normal;
-    }
+  .heroTittle {
+    margin: 0px;
+    margin-left: 150px;
+    padding-top: 13%;
+    text-align: center;
+    color: rgb(242, 250, 244);
+    font-weight: 600;
+    font-size: 120px;
+    letter-spacing: 50px;
+    font-family: 'Anton', cursive;
+    font-style: normal;
+  }
 
-    .heroButton {
-        border: none;
-        outline: none;
-        display: block;
-        margin: 200px auto;
-        padding: 20px 40px;
-        border-radius: 20px;
-        font-size: 25px;
-        font-weight: 700;
-        background-color: rgb(213, 255, 232);
-        color: rgb(52, 80, 69);
-    }
+  .heroButton {
+    border: none;
+    outline: none;
+    display: block;
+    margin: 200px auto;
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: rgb(213, 255, 232);
+    color: rgb(52, 80, 69);
+  }
 }

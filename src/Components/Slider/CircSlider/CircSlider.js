@@ -18,40 +18,40 @@ const comments = [
     name: 'Игорь',
     date: '03.12.2023',
     comment: 'Всё очень понравилось актеры супер, было страшно и интересно',
-    grade: "4.6",
+    grade: '4.6',
   },
   {
     name: 'Ника',
     date: '20.11.2023',
     comment: 'були з друзями та залишились дуууже задоволені',
-    grade: "4.7",
+    grade: '4.7',
   },
   {
     name: 'дарина',
     date: '06.08.2023',
     comment: 'Отлично провели время с друзьями, всё понравилось!',
-    grade: "4.9",
+    grade: '4.9',
   },
   {
     name: 'Егор',
     date: '30.07.2023',
     comment:
       'Круто лично мне понравилось главное иметь умных друзей и еще самому думать страшно и атмосферно очень круто рекомендую к посещению',
-    grade: "5",
+    grade: '5',
   },
   {
     name: 'Анна',
     date: '23.07.2023',
     comment:
       'Квест дужеее сподобався. Дівчинка адмін та актори молодці, лячно стало ще до початку квесту. А як ми тікали наприкінці, треба було бачити. Спробувати варто',
-    grade: "4.9",
+    grade: '4.9',
   },
   {
     name: 'Ната',
     date: '28.05.2023',
     comment:
-      "В цілому квест сподобався,не дуже страшний,не дуже складні завдання,підійде для першого разу на хоррор касетах,мені сподобалось як для різноманіття",
-    grade: "5",
+      'В цілому квест сподобався,не дуже страшний,не дуже складні завдання,підійде для першого разу на хоррор касетах,мені сподобалось як для різноманіття',
+    grade: '5',
   },
 ];
 
@@ -61,9 +61,8 @@ const videoList = [
   },
   {
     url: 'https://youtube.com/embed/4t2BvQEVixA',
-  }
+  },
 ];
-
 
 Modal.setAppElement('#root');
 
@@ -107,7 +106,7 @@ export default function CircSimpleSlider() {
               Вiдгуки
             </button>
             <button className={s.button} onClick={() => openModal('other')}>
-            Відео-відгуки
+              Відео-відгуки
             </button>
           </div>
         </div>
@@ -172,19 +171,19 @@ export default function CircSimpleSlider() {
         className={s.modal}
         overlayClassName={s.overlay}
       >
-         <Slider {...settings} className={s.slider}>
-        {videoList.map((video, index) => (
-          <div key={index}>
-            <iframe
-              className={s.video}
-              src={video.url}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={`YouTube video ${index}`}
-            />
-          </div>
-        ))}
+        <Slider {...settings} className={s.slider}>
+          {videoList.map((video, index) => (
+            <div key={index}>
+              <iframe
+                className={s.video}
+                src={video.url}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={`YouTube video ${index}`}
+              />
+            </div>
+          ))}
         </Slider>
       </Modal>
     </div>

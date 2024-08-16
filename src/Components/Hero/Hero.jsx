@@ -1,5 +1,5 @@
-import s from "./Hero.module.css";
-import { Link } from "react-scroll";
+import s from './Hero.module.css';
+import { Link } from 'react-scroll';
 
 export default function Hero() {
   return (

@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
-import styles from "./PikaCalendar.module.css";
-import time from "../../../img/advanstage/time.svg";
-import calendar from "../../../img/calendar.svg";
-import dollar from "../../../img/dollar.svg";
-import Notiflix from "notiflix";
+import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import styles from './PikaCalendar.module.css';
+import time from '../../../img/advanstage/time.svg';
+import calendar from '../../../img/calendar.svg';
+import dollar from '../../../img/dollar.svg';
+import Notiflix from 'notiflix';
 
 const timeSlots = [
-  { time: "11:00", price: 1000 },
-  { time: "12:30", price: 1000 },
-  { time: "14:00", price: 1200 },
-  { time: "15:30", price: 1200 },
-  { time: "17:00", price: 1300 },
-  { time: "18:30", price: 1400 },
-  { time: "20:00", price: 1500 },
+  { time: '11:00', price: 1000 },
+  { time: '12:30', price: 1000 },
+  { time: '14:00', price: 1200 },
+  { time: '15:30', price: 1200 },
+  { time: '17:00', price: 1300 },
+  { time: '18:30', price: 1400 },
+  { time: '20:00', price: 1500 },
 ];
 
 const weekendTimeSlots = [
-  { time: "11:00", price: 1000 },
-  { time: "12:30", price: 1100 },
-  { time: "14:00", price: 1200 },
-  { time: "15:30", price: 1300 },
-  { time: "17:00", price: 1400 },
-  { time: "18:30", price: 1500 },
-  { time: "20:00", price: 1600 },
+  { time: '11:00', price: 1000 },
+  { time: '12:30', price: 1100 },
+  { time: '14:00', price: 1200 },
+  { time: '15:30', price: 1300 },
+  { time: '17:00', price: 1400 },
+  { time: '18:30', price: 1500 },
+  { time: '20:00', price: 1600 },
 ];
 
 const getNextSevenDays = () => {
@@ -45,20 +45,22 @@ const PikaBookingCalendar = ({ questName }) => {
   const [nextSevenDays, setNextSevenDays] = useState(getNextSevenDays());
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    players: "2", // Дефолтное количество игроков
+    name: '',
+    phone: '',
+    email: '',
+    players: '2', // Дефолтное количество игроков
   });
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`);
+        const response = await fetch(
+          `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`
+        );
         const data = await response.json();
         const parsedBookings = data.reduce((acc, booking) => {
-          const date = new Date(booking.reserved.split(" ")[0]).toDateString();
-          const time = booking.reserved.split(" ")[1];
+          const date = new Date(booking.reserved.split(' ')[0]).toDateString();
+          const time = booking.reserved.split(' ')[1];
           if (!acc[date]) acc[date] = [];
           acc[date].push(time);
           return acc;
@@ -66,17 +68,17 @@ const PikaBookingCalendar = ({ questName }) => {
         setBookings(parsedBookings);
         deleteExpiredBookings(data);
       } catch (error) {
-        console.error("Помилка при отриманні даних про бронювання:", error);
-        Notiflix.Notify.failure("Помилка при отриманні даних про бронювання.");
-    }
+        console.error('Помилка при отриманні даних про бронювання:', error);
+        Notiflix.Notify.failure('Помилка при отриманні даних про бронювання.');
+      }
     };
 
-    const deleteExpiredBookings = async (bookings) => {
+    const deleteExpiredBookings = async bookings => {
       const now = new Date();
       for (const booking of bookings) {
         const bookingDate = new Date(
-          `${booking.reserved.split(" ")[0]}T${
-            booking.reserved.split(" ")[1]
+          `${booking.reserved.split(' ')[0]}T${
+            booking.reserved.split(' ')[1]
           }:00`
         );
         if (bookingDate < now) {
@@ -84,7 +86,7 @@ const PikaBookingCalendar = ({ questName }) => {
             await fetch(
               `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/${booking._id}`,
               {
-                method: "DELETE",
+                method: 'DELETE',
               }
             );
             console.log(`Видалено застаріле бронювання з ID: ${booking._id}`);
@@ -112,13 +114,13 @@ const PikaBookingCalendar = ({ questName }) => {
     setModalIsOpen(true);
   };
 
-  const handleConfirmBooking = async (e) => {
+  const handleConfirmBooking = async e => {
     e.preventDefault();
 
     // Проверка номера телефона
     if (!validatePhoneNumber(formData.phone)) {
       Notiflix.Notify.failure(
-        "Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890"
+        'Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890'
       );
       return;
     }
@@ -127,7 +129,7 @@ const PikaBookingCalendar = ({ questName }) => {
       name: formData.name,
       phone: formData.phone,
       reserved: `${
-        selectedDate.toISOString().split("T")[0]
+        selectedDate.toISOString().split('T')[0]
       } ${selectedTimeSlot}`,
       mail: formData.email,
       players: formData.players, // Добавление количества игроков
@@ -136,20 +138,23 @@ const PikaBookingCalendar = ({ questName }) => {
 
     console.log(newBooking);
     try {
-      const response = await fetch(`https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newBooking),
-      });
+      const response = await fetch(
+        `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newBooking),
+        }
+      );
 
       if (!response.ok) {
-        throw new Error("Помилка мережi " + response.statusText);
+        throw new Error('Помилка мережi ' + response.statusText);
       }
 
       const responseData = await response.json();
-      console.log("Бронювання підтверджено з даними:", responseData);
+      console.log('Бронювання підтверджено з даними:', responseData);
 
       // Обновление состояния бронирований
       const dateString = selectedDate.toDateString();
@@ -161,23 +166,23 @@ const PikaBookingCalendar = ({ questName }) => {
 
       // Сброс данных формы
       setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        players: "2", // Сброс количества игроков к дефолтному значению
+        name: '',
+        phone: '',
+        email: '',
+        players: '2', // Сброс количества игроков к дефолтному значению
       });
 
       // Закрытие модального окна
       closeModal();
 
-      Notiflix.Notify.success("Бронювання успішно підтверджено.");
-} catch (error) {
-  console.error("Помилка підтвердження бронювання:", error);
-  Notiflix.Notify.failure("Помилка підтвердження бронювання.");
-}
+      Notiflix.Notify.success('Бронювання успішно підтверджено.');
+    } catch (error) {
+      console.error('Помилка підтвердження бронювання:', error);
+      Notiflix.Notify.failure('Помилка підтвердження бронювання.');
+    }
   };
 
-  const validatePhoneNumber = (phone) => {
+  const validatePhoneNumber = phone => {
     const phonePattern = /^[+]?[0-9\s-]{7,15}$/;
     return phonePattern.test(phone);
   };
@@ -197,18 +202,18 @@ const PikaBookingCalendar = ({ questName }) => {
     setSelectedDate(null);
     setSelectedTimeSlot(null);
     setSelectedPrice(null);
-    document.body.style.overflow = ""; // Удаление блокировки прокрутки
+    document.body.style.overflow = ''; // Удаление блокировки прокрутки
   };
 
   useEffect(() => {
     if (modalIsOpen) {
-      document.body.style.overflow = "hidden"; // Блокировка прокрутки
+      document.body.style.overflow = 'hidden'; // Блокировка прокрутки
     } else {
-      document.body.style.overflow = ""; // Удаление блокировки прокрутки
+      document.body.style.overflow = ''; // Удаление блокировки прокрутки
     }
 
     return () => {
-      document.body.style.overflow = ""; // Очистка блокировки при размонтировании компонента
+      document.body.style.overflow = ''; // Очистка блокировки при размонтировании компонента
     };
   }, [modalIsOpen]);
 
@@ -219,15 +224,15 @@ const PikaBookingCalendar = ({ questName }) => {
     return basePrice + (additionalPlayers > 0 ? additionalPlayers * 250 : 0);
   };
 
-  const isWeekend = (day) => {
+  const isWeekend = day => {
     const dayOfWeek = day.getDay();
     return dayOfWeek === 6 || dayOfWeek === 0; // 6 - суббота, 0 - воскресенье
   };
 
-  const formatDate = (date) => {
-    const day = date.getDate().toString().padStart(2, "0");
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const dayOfWeek = ["нд", "пн", "вт", "ср", "чт", "пт", "сб"][date.getDay()];
+  const formatDate = date => {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const dayOfWeek = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][date.getDay()];
     return `${day}.${month}, ${dayOfWeek}`;
   };
 
@@ -235,7 +240,8 @@ const PikaBookingCalendar = ({ questName }) => {
     <div className={styles.calendarContainer}>
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
-        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного наступного гравця 250 грн, максимальна кількість гравців - 8.
+        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного
+        наступного гравця 250 грн, максимальна кількість гравців - 8.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
@@ -250,11 +256,12 @@ const PikaBookingCalendar = ({ questName }) => {
                       isBooked(day, timeSlot.time) ||
                       isPastTime(day, timeSlot.time)
                         ? styles.booked
-                        : ""
-                    } ${isWeekend(day) ? styles.weekendTimeSlot : ""}`}
+                        : ''
+                    } ${isWeekend(day) ? styles.weekendTimeSlot : ''}`}
                     onClick={() => handleBooking(day, timeSlot)}
                     disabled={
-                      isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time)
+                      isBooked(day, timeSlot.time) ||
+                      isPastTime(day, timeSlot.time)
                     }
                   >
                     {timeSlot.time} <br />
@@ -279,16 +286,14 @@ const PikaBookingCalendar = ({ questName }) => {
             <h3 className={styles.reservTitle}>Бронювання квесту</h3>
             <p className={styles.reservDate}>
               <img src={time} alt="" className={styles.timeSvg} />
-              <span className={styles.dateInformTittle}>Час:</span>{" "}
+              <span className={styles.dateInformTittle}>Час:</span>{' '}
               <span className={styles.reservDateInfo}>{selectedTimeSlot}</span>
             </p>
             <p className={styles.reservDate}>
               <img src={calendar} alt="" className={styles.timeSvg} />
               <span className={styles.dateInformTittle}>Дата:</span>
               <span className={styles.reservDateInfo}>
-                {selectedDate
-                  ? formatDate(selectedDate)
-                  : ""}
+                {selectedDate ? formatDate(selectedDate) : ''}
               </span>
             </p>
             <p className={styles.reservDate}>
@@ -315,16 +320,14 @@ const PikaBookingCalendar = ({ questName }) => {
               placeholder="Ім'я"
               required
               value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
+              onChange={e => setFormData({ ...formData, name: e.target.value })}
             />
             <input
               type="tel"
               placeholder="Телефон"
               required
               value={formData.phone}
-              onChange={(e) =>
+              onChange={e =>
                 setFormData({ ...formData, phone: e.target.value })
               }
             />
@@ -333,7 +336,7 @@ const PikaBookingCalendar = ({ questName }) => {
               placeholder="Email"
               required
               value={formData.email}
-              onChange={(e) =>
+              onChange={e =>
                 setFormData({ ...formData, email: e.target.value })
               }
             />
@@ -342,7 +345,7 @@ const PikaBookingCalendar = ({ questName }) => {
               <select
                 id="players"
                 value={formData.players}
-                onChange={(e) =>
+                onChange={e =>
                   setFormData({ ...formData, players: e.target.value })
                 }
                 className={styles.select}

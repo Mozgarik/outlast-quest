@@ -1,9 +1,9 @@
-import Logo from "../Logo/Logo";
-import s from "./header.module.css";
-import inst from "../../img/inst.svg";
-import phone from "../../img/phone.svg";
-import email from "../../img/mail.svg";
-import tikTok from '../../img/tiktok_usz520v0xpov.svg'
+import Logo from '../Logo/Logo';
+import s from './header.module.css';
+import inst from '../../img/inst.svg';
+import phone from '../../img/phone.svg';
+import email from '../../img/mail.svg';
+import tikTok from '../../img/tiktok_usz520v0xpov.svg';
 
 export default function Header() {
   return (
@@ -15,12 +15,11 @@ export default function Header() {
         </div>
       </a>
       <div className={s.contacts}>
-       
         <ul className={s.contactsList}>
-           <h5 className={s.contactCity}>м. Одеса</h5>
+          <h5 className={s.contactCity}>м. Одеса</h5>
           <li className={s.contactItem}>
             <a href="https://www.instagram.com/outlast.quest/">
-              <img className={s.instIcon} src={inst} alt="" /> 
+              <img className={s.instIcon} src={inst} alt="" />
             </a>
           </li>
           <li className={s.contactItem}>

@@ -1,14 +1,14 @@
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import s from "./Proklatie.module.css";
-import time from "../../img/advanstage/time.svg";
-import actor from "../../img/advanstage/actor.svg";
-import creepy from "../../img/advanstage/creepy.svg";
-import doubble from "../../img/advanstage/doubble.svg";
-import MonahBookingCalendar from "../../Components/Calendar/MonahCalendar/MonahCalendar";
-import { Link } from "react-scroll"; 
-import { useEffect } from "react";
-import MonahSimpleSlider from "Components/Slider/MonahSlider/MonahSlider";
+import Footer from '../../Components/Footer/Footer';
+import Header from '../../Components/Header/Header';
+import s from './Proklatie.module.css';
+import time from '../../img/advanstage/time.svg';
+import actor from '../../img/advanstage/actor.svg';
+import creepy from '../../img/advanstage/creepy.svg';
+import doubble from '../../img/advanstage/doubble.svg';
+import MonahBookingCalendar from '../../Components/Calendar/MonahCalendar/MonahCalendar';
+import { Link } from 'react-scroll';
+import { useEffect } from 'react';
+import MonahSimpleSlider from 'Components/Slider/MonahSlider/MonahSlider';
 
 export default function Proklatie() {
   const currentDate1 = new Date().getDate();
@@ -17,7 +17,7 @@ export default function Proklatie() {
   const currentDate4 = new Date().getDate() + 3;
   const currentDate5 = new Date().getDate() + 4;
 
-  const questName = "monah";
+  const questName = 'monah';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,20 +62,20 @@ export default function Proklatie() {
               Місто: <span className={s.contactDesc}>Одеса</span>
             </li>
             <li className={s.questContactItem}>
-              Адреса:{" "}
+              Адреса:{' '}
               <span className={s.contactDesc}>
                 вул. Гоголя 1/3, перший під’їзд, код 2к, район Приморський
-              </span>{" "}
+              </span>{' '}
             </li>
             <li className={s.questContactItem}>
-              Номер телефону:{" "}
+              Номер телефону:{' '}
               <span className={s.contactDesc}>+380 99 516 91 66</span>
             </li>
           </ul>
         </div>
       </div>
- 
-      <MonahSimpleSlider/>
+
+      <MonahSimpleSlider />
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>
