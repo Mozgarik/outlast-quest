@@ -8,14 +8,16 @@ import tikTok from '../../img/tiktok_usz520v0xpov.svg'
 export default function Header() {
   return (
     <header>
-      <a className={s.hLink} href="/outlast-quest/">
+      <a className={s.hLink} href="/">
         <div className={s.logotype}>
           <Logo className={s.logo} />
           <span className={s.outlast}>Outlast</span>
         </div>
       </a>
       <div className={s.contacts}>
+       
         <ul className={s.contactsList}>
+           <h5 className={s.contactCity}>м. Одеса</h5>
           <li className={s.contactItem}>
             <a href="https://www.instagram.com/outlast.quest/">
               <img className={s.instIcon} src={inst} alt="" /> 

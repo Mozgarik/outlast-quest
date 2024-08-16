@@ -3,3 +3,11 @@
     height: 100%;
     fill: #ff3030;
 }
+
+@media screen and (max-width: 728px) {
+    .logo{
+        width: 40px;
+        height: 100%;
+        fill: #ff3030;
+    }
+}

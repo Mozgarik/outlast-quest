@@ -12,12 +12,12 @@ Modal.setAppElement('#root');
 
 function App() {
   return (
-    <Router basename='outlast-quest'>
+    <Router basename='/'>
       <div className={s.content}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/proklyatie" element={<Proklatie />} />
-            <Route path="/circ" element={<Circ />} />
+            <Route path="/proklyattya" element={<Proklatie />} />
+            <Route path="/circus" element={<Circ />} />
             <Route path="/povorot" element={<Povorot />} />
             <Route path="/pikova" element={<Pika />} />
           </Routes>

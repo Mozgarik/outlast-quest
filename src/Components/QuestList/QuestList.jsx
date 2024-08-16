@@ -9,11 +9,11 @@ export default function QuestList() {
     const navigate = useNavigate()
 
     const openProkl = () => {
-        navigate('/proklyatie')
+        navigate('/proklyattya')
     }
 
     const openCirc = () => {
-        navigate('/circ')
+        navigate('/circus')
     }
 
     const openPika = () => {

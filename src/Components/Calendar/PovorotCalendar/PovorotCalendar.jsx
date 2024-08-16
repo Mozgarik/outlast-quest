@@ -212,7 +212,7 @@ const PovorotBookingCalendar = ({ questName }) => {
   const getTotalPrice = () => {
     const basePrice = selectedPrice || 0;
     const additionalPlayers = parseInt(formData.players, 10) - 4; // Обновлено: базовое количество игроков - 4
-    return basePrice + (additionalPlayers > 0 ? additionalPlayers * 200 : 0);
+    return basePrice + (additionalPlayers > 0 ? additionalPlayers * 250 : 0);
   };
 
   const isWeekend = (day) => {
@@ -232,8 +232,7 @@ const PovorotBookingCalendar = ({ questName }) => {
     <div className={styles.calendarContainer}>
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
-        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного
-        наступного гравця 200 грн, максимальна кількість гравців - 10.
+        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного наступного гравця 250 грн, максимальна кількість гравців - 10.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (

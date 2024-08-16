@@ -2,14 +2,50 @@
   "name": "outlast-quest",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Mozgarik.github.io/outlast-quest/",
+  "homepage": "https://outlast-quest.com/",
+  "description": "Outlast Quest - лучшие квесты в Одессе для всех любителей приключений. Забронируйте сейчас!",
+  "keywords": [
+    "квесты",
+    "Одесса",
+    "Outlast Quest",
+    "приключения",
+    "escape room",
+    "Проклятие монахини",
+    "Пиковая дама",
+    "Поворот не туда",
+    "цирк ужасов",
+    "квесты для детей",
+    "Страшилки",
+    "Развлечения",
+    "день рождения",
+    "ужасы",
+    "забронировать квест",
+    "лучшие квесты",
+    "Украина квест",
+    "квест с актерами одесса ",
+    "квест астрал",
+    "квест заклятие",
+    "квест с клоунами",
+    "самый страшный квест",
+    "аутласт квесты",
+    "аутласт",
+    "outlast"
+  ],
+  "author": "Олег mozgarik1613@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mozgarik/outlast-quest"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "gsap": "^3.12.5",
-    "http": "^0.0.1-security",
     "nanoid": "^5.0.7",
     "notiflix": "^3.2.7",
     "react": "^18.3.1",
@@ -37,7 +73,10 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:prettier/recommended"
     ]
   },
   "browserslist": {
@@ -51,5 +90,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3"
   }
 }

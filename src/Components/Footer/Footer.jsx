@@ -9,10 +9,12 @@ export default function Footer() {
   return (
     <footer>
       <div className={s.footerSection}>
+      <a className={s.hLink} href="/">
         <div className={s.logotype}>
-          <Logo />
-          Outlast
+          <Logo className={s.logo} />
+          <span className={s.outlast}>Outlast</span>
         </div>
+      </a>
         <div className={s.contacts}>
           <ul className={s.contactsList}>
             <li className={s.contactItem}>
