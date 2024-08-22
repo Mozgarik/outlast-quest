@@ -1,0 +1,164 @@
+/* Основные стили */
+.descContainer {
+    padding: 20px;
+    max-width: 1330px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgb(153, 236, 188);
+    padding-bottom: 100px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 50px;
+    text-align: center;
+    color: rgb(209, 255, 224);
+    margin-top: 80px;
+    font-size: 50px;
+}
+
+.description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    background-color: rgb(36, 36, 36);
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.description p {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.strongCont {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.reservDesc {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: rgb(101, 168, 129);
+}
+
+.descLink {
+    width: 300px;
+    border: none;
+    outline: none;
+    display: block;
+    margin: auto;
+    margin-top: 80px;
+    padding: 20px 20px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: rgb(150, 255, 197);
+    color: rgb(52, 80, 69);
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.descLink:hover {
+    background-color: rgb(185, 255, 217);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивные стили */
+
+/* Mobile styles (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    .descContainer {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-top: 50px;
+    }
+
+    .description {
+        font-size: 1em;
+        padding: 20px 0px;
+    }
+
+    .reservDesc {
+        font-size: 1em;
+    }
+
+    .descLink {
+        font-size: 0.9em;
+        padding: 8px 15px;
+        margin-top: 50px;
+        margin-bottom: 60px;
+    }
+
+    
+    .strongCont {
+        margin-top: 50px;
+    }
+}
+
+/* Tablet styles (min-width: 768px and max-width: 1398px) */
+@media screen and (min-width: 768px) and (max-width: 1398px) {
+    .descContainer {
+        padding: 20px;
+        width: 1100px;
+    }
+
+    h1 {
+        font-size: 1.7em;
+        margin-top: 40px;
+        margin-bottom: 70px;   
+    }
+
+    .description {
+        font-size: 1.1em;
+        padding: 30px 10px;
+    }
+
+    .reservDesc {
+        font-size: 1.2em;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .descLink {
+        font-size: 1em;
+        padding: 12px 20px;
+        margin-bottom: 50px;
+    }
+}
+
+/* Desktop styles (min-width: 1399px) */
+@media screen and (min-width: 1399px) {
+    .descContainer {
+        padding: 20px;
+        max-width: 1330px;
+    }
+
+    h1 {
+        font-size: 50px;
+        margin-bottom: 60px;
+        margin-top: 60px;
+    }
+
+    .description {
+        font-size: 1.1em;
+    }
+
+    .reservDesc {
+        font-size: 1.2em;
+    }
+
+    .descLink {
+        width: 300px;
+        font-size: 25px;
+        padding: 20px 20px;
+        margin-bottom: 100px;
+    }
+
+}

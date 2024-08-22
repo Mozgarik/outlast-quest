@@ -19,13 +19,13 @@ const timeSlots = [
 
 const weekendTimeSlots = [
   { time: '11:00', price: 1000 },
-  { time: '12:10', price: 1100 },
-  { time: '13:30', price: 1200 },
-  { time: '14:50', price: 1200 },
-  { time: '16:10', price: 1300 },
-  { time: '17:30', price: 1300 },
-  { time: '18:50', price: 1400 },
-  { time: '20:00', price: 1500 },
+  { time: '12:20', price: 1100 },
+  { time: '13:40', price: 1200 },
+  { time: '15:00', price: 1200 },
+  { time: '16:20', price: 1300 },
+  { time: '17:40', price: 1300 },
+  { time: '19:00', price: 1400 },
+  { time: '20:20', price: 1500 },
 ];
 
 const getNextSevenDays = () => {

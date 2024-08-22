@@ -26,7 +26,7 @@ export default function QuestList() {
 
   return (
     <div id="questi">
-      <h2 className={s.sectionTittle}>Квест кiмнати</h2>
+      <h1 className={s.sectionTittle}>Квест кiмнати</h1>
       <ul className={s.questList}>
         <li className={s.questItem} onClick={openProkl}>
           <img className={s.classImg} src={mon} alt="" />
