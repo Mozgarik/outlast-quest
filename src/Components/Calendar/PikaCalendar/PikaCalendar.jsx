@@ -55,7 +55,7 @@ const PikaBookingCalendar = ({ questName }) => {
     const fetchBookings = async () => {
       try {
         const response = await fetch(
-          `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}`
+          `https://outlast-56f6a045daee.herokuapp.com/api/${questName}`
         );
         const data = await response.json();
         const parsedBookings = data.reduce((acc, booking) => {
@@ -84,7 +84,7 @@ const PikaBookingCalendar = ({ questName }) => {
         if (bookingDate < now) {
           try {
             await fetch(
-              `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/${booking._id}`,
+              `https://outlast-56f6a045daee.herokuapp.com/api/${questName}/${booking._id}`,
               {
                 method: 'DELETE',
               }
@@ -139,7 +139,7 @@ const PikaBookingCalendar = ({ questName }) => {
     console.log(newBooking);
     try {
       const response = await fetch(
-        `https://outlast-quest-7615628a59ff.herokuapp.com/api/${questName}/`,
+        `https://outlast-56f6a045daee.herokuapp.com/api/${questName}/`,
         {
           method: 'POST',
           headers: {
