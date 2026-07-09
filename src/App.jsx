@@ -3,7 +3,6 @@ import HomePage from './Pages/Homepage/HomePage';
 import Proklatie from './Pages/Proklatie/Proklatie';
 import Circ from './Pages/Circ/Circ';
 import Povorot from './Pages/Povorot/Povorot';
-import Pika from './Pages/Pika/Pika';
 import s from './App.module.css';
 import Modal from 'react-modal';
 
@@ -18,7 +17,6 @@ function App() {
           <Route path="/proklyattya" element={<Proklatie />} />
           <Route path="/circus" element={<Circ />} />
           <Route path="/povorot" element={<Povorot />} />
-          <Route path="/pikova" element={<Pika />} />
         </Routes>
       </div>
     </Router>

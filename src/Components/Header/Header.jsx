@@ -23,7 +23,7 @@ export default function Header() {
             </a>
           </li>
           <li className={s.contactItem}>
-            <a href="tel:+380 99 516 91 66">
+            <a href="tel:++380 63 581 91 42">
               <img className={s.instIcon} src={phone} alt="" />
             </a>
           </li>

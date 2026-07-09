@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import styles from './MonahCalendar.module.css';
@@ -7,28 +9,37 @@ import dollar from '../../../img/dollar.svg';
 import Notiflix from 'notiflix';
 
 const timeSlots = [
-  { time: '11:00', price: 1100 },
-  { time: '12:30', price: 1100 },
-  { time: '14:00', price: 1200 },
-  { time: '15:30', price: 1200 },
-  { time: '17:00', price: 1300 },
-  { time: '18:30', price: 1400 },
-  { time: '20:00', price: 1500 },
-];
-
-const weekendTimeSlots = [
-  { time: '11:00', price: 1100 },
-  { time: '12:30', price: 1100 },
-  { time: '14:00', price: 1200 },
-  { time: '15:30', price: 1300 },
-  { time: '17:00', price: 1400 },
+  { time: '11:00', price: 1400 },
+  { time: '12:30', price: 1400 },
+  { time: '14:00', price: 1400 },
+  { time: '15:30', price: 1400 },
+  { time: '17:00', price: 1500 },
   { time: '18:30', price: 1500 },
   { time: '20:00', price: 1600 },
 ];
 
+const weekendTimeSlots = [
+  { time: '11:00', price: 1400 },
+  { time: '12:30', price: 1400 },
+  { time: '14:00', price: 1400 },
+  { time: '15:30', price: 1400 },
+  { time: '17:00', price: 1500 },
+  { time: '18:30', price: 1500 },
+  { time: '20:00', price: 1600 },
+];
+
+// Получаем дату по Киеву
+const getKievNow = () => {
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  // Киев UTC+3 летом, UTC+2 зимой
+  const kievOffset = 3; 
+  return new Date(utc + 3600000 * kievOffset);
+};
+
 const getNextSevenDays = () => {
   const days = [];
-  const today = new Date();
+  const today = getKievNow();
   for (let i = 0; i < 7; i++) {
     const day = new Date(today);
     day.setDate(today.getDate() + i);
@@ -37,8 +48,8 @@ const getNextSevenDays = () => {
   return days;
 };
 
-// Функция для форматирования даты
-const formatDate = date => {
+// Форматируем дату
+const formatDate = (date) => {
   const weekdays = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
   const day = date.getDate().toString().padStart(2, '0');
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -57,15 +68,13 @@ const MonahBookingCalendar = ({ questName }) => {
     name: '',
     phone: '',
     email: '',
-    players: '2', // Дефолтное количество игроков
+    players: '2',
   });
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch(
-          `https://outlast-56f6a045daee.herokuapp.com/api/${questName}`
-        );
+        const response = await fetch(`https://outlast-2efa57d39805.herokuapp.com/api/${questName}`);
         const data = await response.json();
         const parsedBookings = data.reduce((acc, booking) => {
           const date = new Date(booking.reserved.split(' ')[0]).toDateString();
@@ -82,31 +91,17 @@ const MonahBookingCalendar = ({ questName }) => {
       }
     };
 
-    const deleteExpiredBookings = async bookings => {
-      const now = new Date();
+    const deleteExpiredBookings = async (bookings) => {
+      const now = getKievNow();
       for (const booking of bookings) {
-        const bookingDate = new Date(
-          `${booking.reserved.split(' ')[0]}T${
-            booking.reserved.split(' ')[1]
-          }:00`
-        );
+        const [hours, minutes] = booking.reserved.split(' ')[1].split(':').map(Number);
+        const bookingDate = new Date(booking.reserved.split(' ')[0]);
+        bookingDate.setHours(hours, minutes, 0, 0);
         if (bookingDate < now) {
           try {
-            await fetch(
-              `https://outlast-56f6a045daee.herokuapp.com/api/${questName}/${booking._id}`,
-              {
-                method: 'DELETE',
-              }
-            );
-            console.log(`Видалено застаріле бронювання з ID: ${booking._id}`);
+            await fetch(`https://outlast-2efa57d39805.herokuapp.com/api/${questName}/${booking._id}`, { method: 'DELETE' });
           } catch (error) {
-            console.error(
-              `Ошибка при удалении бронирования с ID: ${booking._id}`,
-              error
-            );
-            Notiflix.Notify.failure(
-              `Ошибка при удалении бронирования с ID: ${booking._id}`
-            );
+            console.error(`Ошибка при удалении бронирования с ID: ${booking._id}`, error);
           }
         }
       }
@@ -123,64 +118,40 @@ const MonahBookingCalendar = ({ questName }) => {
     setModalIsOpen(true);
   };
 
-  const handleConfirmBooking = async e => {
+  const handleConfirmBooking = async (e) => {
     e.preventDefault();
 
-    // Проверка номера телефона
     if (!validatePhoneNumber(formData.phone)) {
-      Notiflix.Notify.failure(
-        'Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890'
-      );
+      Notiflix.Notify.failure('Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890');
       return;
     }
 
     const newBooking = {
       name: formData.name,
       phone: formData.phone,
-      reserved: `${
-        selectedDate.toISOString().split('T')[0]
-      } ${selectedTimeSlot}`,
+      reserved: `${selectedDate.toISOString().split('T')[0]} ${selectedTimeSlot}`,
       mail: formData.email,
-      players: formData.players, // Добавление количества игроков
-      price: getTotalPrice(), // Добавление стоимости
+      players: formData.players,
+      price: getTotalPrice(),
     };
 
-    console.log(newBooking);
     try {
-      const response = await fetch(
-        `https://outlast-56f6a045daee.herokuapp.com/api/${questName}/`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newBooking),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Помилка мережi: ' + response.statusText);
-      }
-
-      // Обновление состояния бронирований
-      const dateString = selectedDate.toDateString();
-      const updatedBookings = {
-        ...bookings,
-        [dateString]: [...(bookings[dateString] || []), selectedTimeSlot],
-      };
-      setBookings(updatedBookings);
-
-      // Сброс данных формы
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        players: '2', // Сброс количества игроков к дефолтному значению
+      const response = await fetch(`https://outlast-2efa57d39805.herokuapp.com/api/${questName}/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newBooking),
       });
 
-      // Закрытие модального окна
-      closeModal();
+      if (!response.ok) throw new Error('Помилка мережi: ' + response.statusText);
 
+      const dateString = selectedDate.toDateString();
+      setBookings({
+        ...bookings,
+        [dateString]: [...(bookings[dateString] || []), selectedTimeSlot],
+      });
+
+      setFormData({ name: '', phone: '', email: '', players: '2' });
+      closeModal();
       Notiflix.Notify.success('Бронювання успішно підтверджено.');
     } catch (error) {
       console.error('Помилка підтвердження бронювання:', error);
@@ -188,10 +159,7 @@ const MonahBookingCalendar = ({ questName }) => {
     }
   };
 
-  const validatePhoneNumber = phone => {
-    const phonePattern = /^[+]?[0-9\s-]{7,15}$/;
-    return phonePattern.test(phone);
-  };
+  const validatePhoneNumber = (phone) => /^[+]?[0-9\s-]{7,15}$/.test(phone);
 
   const isBooked = (date, time) => {
     const dateString = date.toDateString();
@@ -199,8 +167,12 @@ const MonahBookingCalendar = ({ questName }) => {
   };
 
   const isPastTime = (date, time) => {
-    const selectedDateTime = new Date(`${date.toDateString()} ${time}`);
-    return selectedDateTime < new Date();
+    const [hours, minutes] = time.split(':').map(Number);
+    const selectedDateTime = new Date(date);
+    selectedDateTime.setHours(hours, minutes, 0, 0);
+
+    const now = getKievNow();
+    return selectedDateTime.getTime() - now.getTime() < 60 * 60 * 1000; // минимально 1,5 часа
   };
 
   const closeModal = () => {
@@ -208,162 +180,78 @@ const MonahBookingCalendar = ({ questName }) => {
     setSelectedDate(null);
     setSelectedTimeSlot(null);
     setSelectedPrice(null);
-    document.body.style.overflow = ''; // Удаление блокировки прокрутки
+    document.body.style.overflow = '';
   };
 
   useEffect(() => {
-    if (modalIsOpen) {
-      document.body.style.overflow = 'hidden'; // Блокировка прокрутки
-    } else {
-      document.body.style.overflow = ''; // Удаление блокировки прокрутки
-    }
-
-    return () => {
-      document.body.style.overflow = ''; // Очистка блокировки при размонтировании компонента
-    };
+    document.body.style.overflow = modalIsOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [modalIsOpen]);
 
-  // Определение стоимости в зависимости от количества игроков
   const getTotalPrice = () => {
     const basePrice = selectedPrice || 0;
     const additionalPlayers = parseInt(formData.players, 10) - 4;
-    return basePrice + (additionalPlayers > 0 ? additionalPlayers * 250 : 0);
+    return basePrice + (additionalPlayers > 0 ? additionalPlayers * 300 : 0);
   };
 
-  const isWeekend = day => {
-    const dayOfWeek = day.getDay();
-    return dayOfWeek === 6 || dayOfWeek === 0; // 6 - суббота, 0 - воскресенье
-  };
+  const isWeekend = (day) => [0, 6].includes(day.getDay());
 
   return (
     <div className={styles.calendarContainer}>
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
-        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного
-        наступного гравця 250 грн, максимальна кількість гравців - 6.
+        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного наступного гравця 300 грн, максимальна кількість гравців - 6.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
           <div key={index} className={styles.daySlot}>
             <h4 className={styles.day}>{formatDate(day)}</h4>
             <div className={styles.timeSlots}>
-              {(isWeekend(day) ? weekendTimeSlots : timeSlots).map(
-                (timeSlot, idx) => (
-                  <button
-                    key={idx}
-                    className={`${styles.timeSlot} ${
-                      isBooked(day, timeSlot.time) ||
-                      isPastTime(day, timeSlot.time)
-                        ? styles.booked
-                        : ''
-                    } ${isWeekend(day) ? styles.weekendTimeSlot : ''}`}
-                    onClick={() => handleBooking(day, timeSlot)}
-                    disabled={
-                      isBooked(day, timeSlot.time) ||
-                      isPastTime(day, timeSlot.time)
-                    }
-                  >
-                    {timeSlot.time} <br />
-                    <p className={styles.timePrice}>({timeSlot.price} грн)</p>
-                  </button>
-                )
-              )}
+              {(isWeekend(day) ? weekendTimeSlots : timeSlots).map((timeSlot, idx) => (
+                <button
+                  key={idx}
+                  className={`${styles.timeSlot} ${isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time) ? styles.booked : ''} ${isWeekend(day) ? styles.weekendTimeSlot : ''}`}
+                  onClick={() => handleBooking(day, timeSlot)}
+                  disabled={isBooked(day, timeSlot.time) || isPastTime(day, timeSlot.time)}
+                >
+                  {timeSlot.time} <br />
+                  <p className={styles.timePrice}>({timeSlot.price} грн)</p>
+                </button>
+              ))}
             </div>
           </div>
         ))}
       </div>
 
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        className={styles.modal}
-        overlayClassName={styles.overlay}
-        contentLabel="Бронирование времени"
-      >
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className={styles.modal} overlayClassName={styles.overlay}>
         <form onSubmit={handleConfirmBooking}>
           <div className={styles.reservInfo}>
             <h3 className={styles.reservTitle}>Бронювання квесту</h3>
-            <p className={styles.reservDate}>
-              <img src={time} alt="" className={styles.timeSvg} />
-              <span className={styles.dateInformTittle}>Час:</span>{' '}
-              <span className={styles.reservDateInfo}>{selectedTimeSlot}</span>
-            </p>
-            <p className={styles.reservDate}>
-              <img src={calendar} alt="" className={styles.timeSvg} />
-              <span className={styles.dateInformTittle}>Дата:</span>
-              <span className={styles.reservDateInfo}>
-                {selectedDate ? formatDate(selectedDate) : ''}
-              </span>
-            </p>
-            <p className={styles.reservDate}>
-              <img src={dollar} alt="" className={styles.timeSvg} />
-              <span className={styles.dateInformTittle}>Ціна: </span>
-              <span className={styles.reservDateInfo}>
-                {getTotalPrice()} грн
-              </span>
-            </p>
-            <p className={styles.infoDescription}>
-              * Бронювання цього квесту потребує передоплати в розмірі 200 грн.
-            </p>
-            <p className={styles.infoDescription}>
-              * Після заповнення форми з вами зв'яжеться адміністратор по номеру
-              телефону для підтвердження бронювання.
-            </p>
+            <p className={styles.reservDate}><img src={time} alt='' className={styles.timeSvg} /><span className={styles.dateInformTittle}>Час:</span> <span className={styles.reservDateInfo}>{selectedTimeSlot}</span></p>
+            <p className={styles.reservDate}><img src={calendar} alt='' className={styles.timeSvg} /><span className={styles.dateInformTittle}>Дата:</span> <span className={styles.reservDateInfo}>{selectedDate ? formatDate(selectedDate) : ''}</span></p>
+            <p className={styles.reservDate}><img src={dollar} alt='' className={styles.timeSvg} /><span className={styles.dateInformTittle}>Ціна: </span><span className={styles.reservDateInfo}>{getTotalPrice()} грн</span></p>
+            <p className={styles.infoDescription}>* Бронювання цього квесту потребує передоплати в розмірі 300 грн.</p>
+            <p className={styles.infoDescription}>* Після заповнення форми з вами зв'яжеться адміністратор по номеру телефону для підтвердження бронювання.</p>
           </div>
           <div className={styles.formLeftDecoration}></div>
           <div className={styles.formRightDecoration}></div>
           <div className={styles.circle}></div>
           <div className={styles.formInner}>
-            <input
-              type="text"
-              placeholder="Ім'я"
-              required
-              value={formData.name}
-              onChange={e => setFormData({ ...formData, name: e.target.value })}
-            />
-            <input
-              type="tel"
-              placeholder="Телефон"
-              required
-              value={formData.phone}
-              onChange={e =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              value={formData.email}
-              onChange={e =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-            <label htmlFor="players" className={styles.label}>
+            <input type='text' placeholder="Ім'я" required value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })}/>
+            <input type='tel' placeholder='Телефон' required value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })}/>
+            <input type='email' placeholder='Email' required value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })}/>
+            <label htmlFor='players' className={styles.label}>
               <p className={styles.members}>Кількість гравців:</p>
-              <select
-                id="players"
-                value={formData.players}
-                onChange={e =>
-                  setFormData({ ...formData, players: e.target.value })
-                }
-                className={styles.select}
-              >
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
+              <select id='players' value={formData.players} onChange={e => setFormData({ ...formData, players: e.target.value })} className={styles.select}>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
               </select>
             </label>
-            <input type="submit" value="Забронювати гру" />
-            <button
-              className={styles.modalClose}
-              type="button"
-              onClick={closeModal}
-            >
-              Відміна
-            </button>
+            <input type='submit' value='Забронювати гру'/>
+            <button className={styles.modalClose} type='button' onClick={closeModal}>Відміна</button>
           </div>
         </form>
       </Modal>

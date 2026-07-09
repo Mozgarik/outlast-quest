@@ -73,7 +73,7 @@ export default function Proklatie() {
               </span>{' '}
             </li>
             <li className={s.questContactItem}>
-              Номер телефону:{' '}
+              Номер телефону:{''}
               <span className={s.contactDesc}>+380 99 516 91 66</span>
             </li>
           </ul>
@@ -99,12 +99,6 @@ export default function Proklatie() {
           <li className={s.advantagesItem}>
             <img src={creepy} alt="" className={s.advantagesImg} /> <br />
             <span className={s.advantagesDesc}>Цей квест є квестом жахів</span>
-          </li>
-          <li className={s.advantagesItem}>
-            <img src={doubble} alt="" className={s.advantagesImg} /> <br />
-            <span className={s.advantagesDesc}>
-              Додатково ви можете придбати другий рівень страху (+200 грн)
-            </span>
           </li>
         </ul>
       </div>

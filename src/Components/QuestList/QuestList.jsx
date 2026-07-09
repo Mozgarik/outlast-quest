@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import s from './QuestList.module.css';
 import circ from '../../img/circ.jpg';
 import povor from '../../img/povor.jpg';
-import pik from '../../img/pik.jpg';
 import mon from '../../img/mon.jpg';
 
 export default function QuestList() {
@@ -29,7 +28,7 @@ export default function QuestList() {
       <h1 className={s.sectionTittle}>Квест кiмнати</h1>
       <ul className={s.questList}>
         <li className={s.questItem} onClick={openProkl}>
-          <img className={s.classImg} src={mon} alt="" />
+          <img className={s.classImg} loading="lazy" src={mon} alt="" />
           <h2 className={s.questTittle}>Прокляття черницi</h2>
           <h4 className={s.questDescription}>
             Ви вирушаєте в абатство Сент-Карта разом зі священиком Бруком і
@@ -47,7 +46,7 @@ export default function QuestList() {
           </button>
         </li>
         <li className={s.questItem} onClick={openPovorot}>
-          <img className={s.classImg} src={povor} alt="" />
+          <img className={s.classImg} loading="lazy" src={povor} alt="" />
           <h2 className={s.questTittle}>Поворот не туди</h2>
           <h4 className={s.questDescription}>
             Натхнений знаменитим фільмом жахів "Поворот не туди", ескейп-рум
@@ -64,27 +63,8 @@ export default function QuestList() {
             Детальнiше
           </button>
         </li>
-        <li className={s.questItem} onClick={openPika}>
-          <img className={s.classImg} src={pik} alt="" />
-          <h2 className={s.questTittle}>Пiкова дама</h2>
-          <h4 className={s.questDescription}>
-            Ви поїхали в колоритне місто, щоб втекти від сірих буднів і провести
-            час на природі. Ви залишили свої речі в готелі та вирушили на лісову
-            стежку, незважаючи на попередження господині. У результаті ви
-            звернули не туди і заблукали в лісі під час грози і вже темряви.
-          </h4>
-          <button
-            onClick={e => {
-              e.stopPropagation();
-              openPika();
-            }}
-            className={s.questButton}
-          >
-            Детальнiше
-          </button>
-        </li>
         <li className={s.questItem} onClick={openCirc}>
-          <img className={s.classImg} src={circ} alt="" />
+          <img className={s.classImg} loading="lazy" src={circ} alt="" />
           <h2 className={s.questTittle}>Цирк Жахiв</h2>
           <h4 className={s.questDescription}>
             Квест в реальності "Цирк жахів" є інтригуючим і захоплюючим

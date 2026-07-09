@@ -69,7 +69,7 @@ export default function Proklatie() {
             </li>
             <li className={s.questContactItem}>
               Номер телефону:{' '}
-              <span className={s.contactDesc}>+380 99 516 91 66</span>
+              <span className={s.contactDesc}>+380 63 581 91 42</span>
             </li>
           </ul>
         </div>
