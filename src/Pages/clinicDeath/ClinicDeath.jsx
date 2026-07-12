@@ -16,7 +16,7 @@ export default function ClinicDeath() {
   const currentDate4 = new Date().getDate() + 3;
   const currentDate5 = new Date().getDate() + 4;
 
-  const questName = 'lastGame';
+  const questName = 'clinic';
 
   useEffect(() => {
     window.scrollTo(0, 0);
