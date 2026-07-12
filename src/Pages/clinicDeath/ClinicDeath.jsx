@@ -1,23 +1,22 @@
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
-import s from './Cirk.module.css';
+import s from './ClinicDeath.module.css';
 import time from '../../img/advanstage/time.svg';
 import actor from '../../img/advanstage/actor.svg';
 import creepy from '../../img/advanstage/creepy.svg';
-import doubble from '../../img/advanstage/doubble.svg';
-import CircBookingCalendar from '../../Components/Calendar/CircCalendar/CircCalendar';
+import ClinicDeathBookingCalendar from '../../Components/Calendar/ClinicDeath/ClinicDeathCalendar';
 import { Link } from 'react-scroll'; // Импортируем библиотеку
 import { useEffect } from 'react';
-import CircSimpleSlider from 'Components/Slider/CircSlider/CircSlider';
+import ClinicDeathSimpleSlider from 'Components/Slider/ClinicDeathSlider/ClinicDeathSlider';
 
-export default function Circ() {
+export default function ClinicDeath() {
   const currentDate1 = new Date().getDate();
   const currentDate2 = new Date().getDate() + 1;
   const currentDate3 = new Date().getDate() + 2;
   const currentDate4 = new Date().getDate() + 3;
   const currentDate5 = new Date().getDate() + 4;
 
-  const questName = 'circus';
+  const questName = 'lastGame';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,18 +45,14 @@ export default function Circ() {
         <div className={s.hist}>
           <h2 className={s.questTittle}>Iсторiя</h2>
           <span className={s.questHist}>
-            Головними дійовими особами перформансу, який захопив увагу
-            найдосвідченіших квестоманів міста, як ви розумієте, є - клоуни. Так
-            склалося, що ви стали бранцями в покинутому цирку. Ви будете
-            кричати, але не від захвату... а від жаху! Вам належить розгадати
-            таємниці загадкового зникнення людей. З етичних міркувань ми
-            опустимо, яка печаль спіткала клоунів і які жахи на нас чекали під
-            час проходження квесту. Але попередити вас про те, до чого вам
-            готуватися - наш професійний обов'язок. Отже... Це зовсім не цирк!
-            Це поганий сон, марення, яке все тягнеться і ніяк не закінчиться.
-            Цей цирк - зовсім не веселий: тут немає акробатів і дресированих
-            песиків, жонглерів і тигрів. Зате є клоуни. Але персонажі не
-            настільки прості...
+            Ви поринули у світ загадкової клінічної смерті. Зараз ви вже не у
+            своєму тілі, але ви маєте повернутися до нього. Але як? Перед вами
+            відкривається цілий світ, сповнений таємниць та небезпек. Ви повинні
+            спробувати зрозуміти і пройти через всі випробування, щоб
+            повернутися в життя. Будьте готові до того, що кожен крок у цьому
+            світі може бути небезпечним та загадковим. Ви повинні приймати
+            складні рішення, і тільки від вас залежить, чи зможете ви
+            повернутися у своє тіло.
           </span>
         </div>
         <div className={s.questAdress}>
@@ -69,7 +64,7 @@ export default function Circ() {
             <li className={s.questContactItem}>
               Адреса:{' '}
               <span className={s.contactDesc}>
-                Провулок Нахімова 6 , район Приморський
+                вул. Преображенська 34(Пасаж)
               </span>{' '}
             </li>
             <li className={s.questContactItem}>
@@ -80,7 +75,7 @@ export default function Circ() {
         </div>
       </div>
 
-      <CircSimpleSlider />
+      <ClinicDeathSimpleSlider />
 
       <div className={s.advantages}>
         <ul className={s.advantagesList}>
@@ -103,7 +98,7 @@ export default function Circ() {
         </ul>
       </div>
       <div id="calendar">
-        <CircBookingCalendar questName={questName} />
+        <ClinicDeathBookingCalendar questName={questName} />
       </div>
 
       <Footer />

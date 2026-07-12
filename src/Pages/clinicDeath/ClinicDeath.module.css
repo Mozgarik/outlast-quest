@@ -1,0 +1,280 @@
+.opas {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 1000px;
+  background-image: url(../../img/assist/IMG_7934.jpg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+/* Кнопка */
+.heroButton {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  margin-bottom: 90px;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: rgb(56, 179, 148);
+  color: rgb(255, 255, 255);
+  transition:
+    color 0.2s linear,
+    background-color 0.2s linear;
+}
+
+.heroButton:hover {
+  background-color: white;
+  color: rgb(230, 49, 49);
+}
+
+/* Область контента */
+.heroTittle {
+  text-align: center;
+  color: red;
+}
+
+.opys {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Гибкость и центровка */
+.opys,
+.advantages {
+  width: 90%;
+  max-width: 1600px;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.hist {
+  width: 600px;
+  color: white;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.questAdress {
+  border-left: 1px solid rgb(51, 153, 131);
+  padding-left: 80px;
+}
+
+/* Стили для списков */
+.questContactList {
+  list-style: none;
+  padding: 0;
+}
+
+.questContactItem {
+  margin-top: 20px;
+  color: rgb(68, 182, 144);
+}
+
+.contactDesc {
+  color: rgb(202, 202, 202);
+  margin-left: 20px;
+}
+
+.contactTittle {
+  color: white;
+  margin-left: 20px;
+}
+
+.advantagesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 100px;
+  margin-bottom: 70px;
+  padding: 0;
+}
+
+.advantagesImg {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+
+.advantagesItem {
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.advantagesDesc {
+  color: white;
+}
+
+/* Календарь */
+.calendar {
+  width: 90%;
+  max-width: 1600px;
+  margin: auto;
+  background-color: rgb(49, 49, 49);
+  padding: 70px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px -3px #000000;
+  margin-bottom: 100px;
+}
+
+/* Стили для времени */
+.timeItem {
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.timeItem:hover {
+  transform: scale(1.1);
+}
+
+.timeButton {
+  background-color: rgb(68, 182, 144);
+  color: rgb(235, 234, 234);
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 5px 5px 5px -3px #000000;
+}
+
+.date {
+  color: white;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.reservation {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.resDesc {
+  color: rgb(179, 179, 179);
+  font-size: 15px;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 1200px) {
+  .opas {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 800px;
+  }
+
+  .heroButton {
+    position: static;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-bottom: 150px;
+  }
+
+  .opys {
+    display: block;
+  }
+
+  .hist {
+    width: 100%;
+    padding-bottom: 80px;
+    border-right: none;
+    border-bottom: 1px solid rgb(51, 153, 131);
+  }
+
+  .questAdress {
+    border-left: none;
+    padding-left: 0px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .advantagesImg {
+    max-width: 80px;
+  }
+
+  .advantagesItem {
+    max-width: 150px;
+  }
+
+  .calendar {
+    padding: 50px;
+  }
+
+  .timeButton {
+    padding: 10px 20px;
+  }
+
+  .resDesc {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .opas {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 500px;
+  }
+
+  .heroButton {
+    position: static;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .opys {
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding-bottom: 0px;
+  }
+
+  .hist {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px rgb(51, 153, 131) solid;
+    padding-bottom: 40px;
+  }
+
+  .contactTittle {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .questContactList {
+    padding-bottom: 100px;
+  }
+
+  .advantagesList {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+  }
+
+  .advantagesItem {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 100px;
+  }
+
+  .calendar {
+    padding: 30px;
+  }
+}

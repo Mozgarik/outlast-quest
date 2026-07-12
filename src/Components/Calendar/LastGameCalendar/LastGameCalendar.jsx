@@ -1,39 +1,38 @@
-/* eslint-disable prettier/prettier */
-
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
-import styles from './MonahCalendar.module.css';
+import styles from './LastGameCalendar.module.css';
 import time from '../../../img/advanstage/time.svg';
 import calendar from '../../../img/calendar.svg';
 import dollar from '../../../img/dollar.svg';
 import Notiflix from 'notiflix';
 
 const timeSlots = [
-  { time: '11:00', price: 1400 },
-  { time: '12:30', price: 1400 },
-  { time: '14:00', price: 1400 },
-  { time: '15:30', price: 1400 },
-  { time: '17:00', price: 1500 },
-  { time: '18:30', price: 1500 },
-  { time: '20:00', price: 1600 },
+  { time: '10:00', price: 1700 },
+  { time: '11:30', price: 1600 },
+  { time: '13:00', price: 1600 },
+  { time: '14:30', price: 1600 },
+  { time: '16:00', price: 1600 },
+  { time: '17:30', price: 1700 },
+  { time: '19:00', price: 1800 },
+  { time: '20:30', price: 2000 },
 ];
 
 const weekendTimeSlots = [
-  { time: '11:00', price: 1400 },
-  { time: '12:30', price: 1400 },
-  { time: '14:00', price: 1400 },
-  { time: '15:30', price: 1400 },
-  { time: '17:00', price: 1500 },
-  { time: '18:30', price: 1500 },
-  { time: '20:00', price: 1600 },
+  { time: '10:00', price: 1700 },
+  { time: '11:30', price: 1600 },
+  { time: '13:00', price: 1600 },
+  { time: '14:30', price: 1600 },
+  { time: '16:00', price: 1600 },
+  { time: '17:30', price: 1700 },
+  { time: '19:00', price: 1800 },
+  { time: '20:30', price: 2000 },
 ];
 
-// Получаем дату по Киеву
+// Получаем текущее время в Киеве
 const getKievNow = () => {
   const now = new Date();
   const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  // Киев UTC+3 летом, UTC+2 зимой
-  const kievOffset = 3;
+  const kievOffset = 3; // UTC+3 (летом)
   return new Date(utc + 3600000 * kievOffset);
 };
 
@@ -48,16 +47,7 @@ const getNextSevenDays = () => {
   return days;
 };
 
-// Форматируем дату
-const formatDate = date => {
-  const weekdays = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-  const day = date.getDate().toString().padStart(2, '0');
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const weekday = weekdays[date.getDay()];
-  return `${day}.${month}, ${weekday}`;
-};
-
-const MonahBookingCalendar = ({ questName }) => {
+const LastGameBookingCalendar = ({ questName }) => {
   const [bookings, setBookings] = useState({});
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
@@ -132,7 +122,7 @@ const MonahBookingCalendar = ({ questName }) => {
   const handleConfirmBooking = async e => {
     e.preventDefault();
 
-    if (!validatePhoneNumber(formData.phone)) {
+    if (!/^[+]?[0-9\s-]{7,15}$/.test(formData.phone)) {
       Notiflix.Notify.failure(
         'Будь ласка, введіть номер телефону у форматі: +1234567890 або 123-456-7890'
       );
@@ -159,14 +149,13 @@ const MonahBookingCalendar = ({ questName }) => {
       );
 
       if (!response.ok)
-        throw new Error('Помилка мережi: ' + response.statusText);
+        throw new Error('Помилка мережі:' + response.statusText);
 
       const dateString = selectedDate.toDateString();
       setBookings({
         ...bookings,
         [dateString]: [...(bookings[dateString] || []), selectedTimeSlot],
       });
-
       setFormData({ name: '', phone: '', email: '', players: '2' });
       closeModal();
       Notiflix.Notify.success('Бронювання успішно підтверджено.');
@@ -175,8 +164,6 @@ const MonahBookingCalendar = ({ questName }) => {
       Notiflix.Notify.failure('Помилка підтвердження бронювання.');
     }
   };
-
-  const validatePhoneNumber = phone => /^[+]?[0-9\s-]{7,15}$/.test(phone);
 
   const isBooked = (date, time) => {
     const dateString = date.toDateString();
@@ -187,9 +174,8 @@ const MonahBookingCalendar = ({ questName }) => {
     const [hours, minutes] = time.split(':').map(Number);
     const selectedDateTime = new Date(date);
     selectedDateTime.setHours(hours, minutes, 0, 0);
-
     const now = getKievNow();
-    return selectedDateTime.getTime() - now.getTime() < 60 * 60 * 1000; // минимально 1,5 часа
+    return selectedDateTime.getTime() - now.getTime() < 90 * 60 * 1000;
   };
 
   const closeModal = () => {
@@ -210,17 +196,24 @@ const MonahBookingCalendar = ({ questName }) => {
   const getTotalPrice = () => {
     const basePrice = selectedPrice || 0;
     const additionalPlayers = parseInt(formData.players, 10) - 4;
-    return basePrice + (additionalPlayers > 0 ? additionalPlayers * 300 : 0);
+    return basePrice + (additionalPlayers > 0 ? additionalPlayers * 200 : 0);
   };
 
   const isWeekend = day => [0, 6].includes(day.getDay());
+
+  const formatDate = date => {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const weekday = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][date.getDay()];
+    return `${day}.${month}, ${weekday}`;
+  };
 
   return (
     <div className={styles.calendarContainer}>
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
-        *Базова вартість за гру вказана за 4 гравцiв, доплата за кожного
-        наступного гравця 300 грн, максимальна кількість гравців - 6.
+        *Базова вартість за гру вказана за 4 гравців, доплата за кожного
+        наступного гравця 200 грн, максимальна кількість гравців - 8.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
@@ -328,6 +321,8 @@ const MonahBookingCalendar = ({ questName }) => {
                 <option value="4">4</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
               </select>
             </label>
             <input type="submit" value="Забронювати гру" />
@@ -345,4 +340,4 @@ const MonahBookingCalendar = ({ questName }) => {
   );
 };
 
-export default MonahBookingCalendar;
+export default LastGameBookingCalendar;

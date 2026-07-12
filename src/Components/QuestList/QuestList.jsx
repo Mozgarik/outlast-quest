@@ -3,6 +3,8 @@ import s from './QuestList.module.css';
 import circ from '../../img/circ.jpg';
 import povor from '../../img/povor.jpg';
 import mon from '../../img/mon.jpg';
+import last from '../../img/assist/IMG_7936.jpg';
+import clinic from '../../img/assist/IMG_7934.jpg';
 
 export default function QuestList() {
   const navigate = useNavigate();
@@ -21,6 +23,14 @@ export default function QuestList() {
 
   const openPovorot = () => {
     navigate('/povorot');
+  };
+
+  const openLastGame = () => {
+    navigate('/lastGame');
+  };
+
+  const openClinicDeath = () => {
+    navigate('/clinic');
   };
 
   return (
@@ -70,6 +80,43 @@ export default function QuestList() {
             Квест в реальності "Цирк жахів" є інтригуючим і захоплюючим
             хорор-перформансом, де ви опиняєтеся в покинутому цирку в ролі
             бранців.
+          </h4>
+          <button
+            onClick={e => {
+              e.stopPropagation();
+              openCirc();
+            }}
+            className={s.questButton}
+          >
+            Детальнiше
+          </button>
+        </li>
+        <li className={s.questItem} onClick={openLastGame}>
+          <img className={s.classImg} loading="lazy" src={last} alt="" />
+          <h2 className={s.questTittle}>Остання гра</h2>
+          <h4 className={s.questDescription}>
+            Квест кiмната «Остання гра» — це хорор-перформанс, де розвага
+            перетворюється на смертельно небезпечне випробування. Потрапивши у
+            пастку разом із друзями, ви маєте розгадати загадки та знайти вихід,
+            поки не стало занадто пізно.
+          </h4>
+          <button
+            onClick={e => {
+              e.stopPropagation();
+              openCirc();
+            }}
+            className={s.questButton}
+          >
+            Детальнiше
+          </button>
+        </li>
+        <li className={s.questItem} onClick={openClinicDeath}>
+          <img className={s.classImg} loading="lazy" src={clinic} alt="" />
+          <h2 className={s.questTittle}>Клінічна смерть</h2>
+          <h4 className={s.questDescription}>
+            Ви поринули у світ загадкової клінічної смерті. Зараз ви вже не у
+            своєму тілі, але ви маєте повернутися до нього. Але як? Перед вами
+            відкривається цілий світ, сповнений таємниць та небезпек
           </h4>
           <button
             onClick={e => {

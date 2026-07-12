@@ -80,13 +80,11 @@ const CircBookingCalendar = ({ questName }) => {
         deleteExpiredBookings(data);
       } catch (error) {
         console.error('Помилка при отриманні даних про бронювання:', error);
-        Notiflix.Notify.failure(
-          'Помилка при отриманні даних про бронювання.'
-        );
+        Notiflix.Notify.failure('Помилка при отриманні даних про бронювання.');
       }
     };
 
-    const deleteExpiredBookings = async (bookingsList) => {
+    const deleteExpiredBookings = async bookingsList => {
       const now = getKievNow();
       for (const booking of bookingsList) {
         const [hours, minutes] = booking.reserved
@@ -122,7 +120,7 @@ const CircBookingCalendar = ({ questName }) => {
     setModalIsOpen(true);
   };
 
-  const handleConfirmBooking = async (e) => {
+  const handleConfirmBooking = async e => {
     e.preventDefault();
 
     if (!/^[+]?[0-9\s-]{7,15}$/.test(formData.phone)) {
@@ -202,9 +200,9 @@ const CircBookingCalendar = ({ questName }) => {
     return basePrice + (additionalPlayers > 0 ? additionalPlayers * 300 : 0);
   };
 
-  const isWeekend = (day) => [0, 6].includes(day.getDay());
+  const isWeekend = day => [0, 6].includes(day.getDay());
 
-  const formatDate = (date) => {
+  const formatDate = date => {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const weekday = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'][date.getDay()];
@@ -226,7 +224,8 @@ const CircBookingCalendar = ({ questName }) => {
               <h4 className={styles.day}>{formatDate(day)}</h4>
               <div className={styles.timeSlots}>
                 {slots.map((slot, idx) => {
-                  const booked = isBooked(day, slot.time) || isPastTime(day, slot.time);
+                  const booked =
+                    isBooked(day, slot.time) || isPastTime(day, slot.time);
                   const className = [
                     styles.timeSlot,
                     booked ? styles.booked : '',
@@ -275,7 +274,9 @@ const CircBookingCalendar = ({ questName }) => {
             <p className={styles.reservDate}>
               <img src={dollar} alt="" className={styles.timeSvg} />
               <span className={styles.dateInformTittle}>Ціна: </span>
-              <span className={styles.reservDateInfo}>{getTotalPrice()} грн</span>
+              <span className={styles.reservDateInfo}>
+                {getTotalPrice()} грн
+              </span>
             </p>
             <p className={styles.infoDescription}>
               * Бронювання цього квесту потребує передоплати в розмірі 300 грн.
@@ -294,33 +295,37 @@ const CircBookingCalendar = ({ questName }) => {
               placeholder="Ім'я"
               required
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={e => setFormData({ ...formData, name: e.target.value })}
             />
             <input
               type="tel"
               placeholder="Телефон"
               required
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onChange={e =>
+                setFormData({ ...formData, phone: e.target.value })
+              }
             />
             <input
               type="email"
               placeholder="Email"
               required
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={e =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
             <label htmlFor="players" className={styles.label}>
               <p className={styles.members}>Кількість гравців:</p>
               <select
                 id="players"
                 value={formData.players}
-                onChange={(e) =>
+                onChange={e =>
                   setFormData({ ...formData, players: e.target.value })
                 }
                 className={styles.select}
               >
-                {Array.from({ length: 7 }, (_, i) => i + 2).map((num) => (
+                {Array.from({ length: 7 }, (_, i) => i + 2).map(num => (
                   <option key={num} value={num}>
                     {num}
                   </option>
