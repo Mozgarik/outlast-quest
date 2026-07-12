@@ -213,7 +213,7 @@ const ClinicDeathBookingCalendar = ({ questName }) => {
       <h2 className={styles.calendarTitle}>Обери зручну дату та час</h2>
       <p className={styles.cost}>
         *Базова вартість за гру вказана за 4 гравців, доплата за кожного
-        наступного гравця 200 грн, максимальна кількість гравців - 8.
+        наступного гравця 300 грн, максимальна кількість гравців - 12.
       </p>
       <div className={styles.daysContainer}>
         {nextSevenDays.map((day, index) => (
