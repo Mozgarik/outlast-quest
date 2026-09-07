@@ -10,26 +10,26 @@ import Notiflix from 'notiflix';
 
 // Время и цены для обычных дней
 const timeSlots = [
-  { time: '11:00', price: 1500 },
-  { time: '12:20', price: 1400 },
-  { time: '13:40', price: 1400 },
-  { time: '15:00', price: 1400 },
-  { time: '16:20', price: 1500 },
-  { time: '17:40', price: 1500 },
-  { time: '19:00', price: 1600 },
-  { time: '20:20', price: 1700 },
+  { time: '11:00', price: 1700 },
+  { time: '12:20', price: 1600 },
+  { time: '13:40', price: 1600 },
+  { time: '15:00', price: 1600 },
+  { time: '16:20', price: 1600 },
+  { time: '17:40', price: 1700 },
+  { time: '19:00', price: 1800 },
+  { time: '20:20', price: 2000 },
 ];
 
 // Время и цены для выходных
 const weekendTimeSlots = [
-  { time: '11:00', price: 1500 },
-  { time: '12:20', price: 1400 },
-  { time: '13:40', price: 1400 },
-  { time: '15:00', price: 1400 },
-  { time: '16:20', price: 1500 },
-  { time: '17:40', price: 1500 },
-  { time: '19:00', price: 1600 },
-  { time: '20:20', price: 1700 },
+  { time: '11:00', price: 1700 },
+  { time: '12:20', price: 1600 },
+  { time: '13:40', price: 1600 },
+  { time: '15:00', price: 1600 },
+  { time: '16:20', price: 1600 },
+  { time: '17:40', price: 1700 },
+  { time: '19:00', price: 1800 },
+  { time: '20:20', price: 2000 },
 ];
 
 // Функция для получения следующих семи дней

@@ -9,23 +9,23 @@ import dollar from '../../../img/dollar.svg';
 import Notiflix from 'notiflix';
 
 const timeSlots = [
-  { time: '11:00', price: 1400 },
-  { time: '12:30', price: 1400 },
-  { time: '14:00', price: 1400 },
-  { time: '15:30', price: 1400 },
-  { time: '17:00', price: 1500 },
-  { time: '18:30', price: 1500 },
-  { time: '20:00', price: 1600 },
+  { time: '11:00', price: 1600 },
+  { time: '12:30', price: 1600 },
+  { time: '14:00', price: 1600 },
+  { time: '15:30', price: 1600 },
+  { time: '17:00', price: 1700 },
+  { time: '18:30', price: 1800 },
+  { time: '20:00', price: 2000 },
 ];
 
 const weekendTimeSlots = [
-  { time: '11:00', price: 1400 },
-  { time: '12:30', price: 1400 },
-  { time: '14:00', price: 1400 },
-  { time: '15:30', price: 1400 },
-  { time: '17:00', price: 1500 },
-  { time: '18:30', price: 1500 },
-  { time: '20:00', price: 1600 },
+  { time: '11:00', price: 1600 },
+  { time: '12:30', price: 1600 },
+  { time: '14:00', price: 1600 },
+  { time: '15:30', price: 1600 },
+  { time: '17:00', price: 1700 },
+  { time: '18:30', price: 1800 },
+  { time: '20:00', price: 2000 },
 ];
 
 // Получаем дату по Киеву

@@ -103,7 +103,7 @@ export default function QuestList() {
           <button
             onClick={e => {
               e.stopPropagation();
-              openCirc();
+              openLastGame();
             }}
             className={s.questButton}
           >
@@ -121,7 +121,7 @@ export default function QuestList() {
           <button
             onClick={e => {
               e.stopPropagation();
-              openCirc();
+              openClinicDeath();
             }}
             className={s.questButton}
           >
