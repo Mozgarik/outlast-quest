@@ -65,7 +65,7 @@ const ClinicDeathBookingCalendar = ({ questName }) => {
     const fetchBookings = async () => {
       try {
         const response = await fetch(
-          `https://outlast-2efa57d39805.herokuapp.com/api/${questName}`
+          `https://outlast-quest-338f470aae89.herokuapp.com/api/${questName}`
         );
         const data = await response.json();
         const parsedBookings = data.reduce((acc, booking) => {
@@ -95,7 +95,7 @@ const ClinicDeathBookingCalendar = ({ questName }) => {
         if (bookingDate < now) {
           try {
             await fetch(
-              `https://outlast-2efa57d39805.herokuapp.com/api/${questName}/${booking._id}`,
+              `https://outlast-quest-338f470aae89.herokuapp.com/api/${questName}/${booking._id}`,
               { method: 'DELETE' }
             );
           } catch (error) {
@@ -140,7 +140,7 @@ const ClinicDeathBookingCalendar = ({ questName }) => {
 
     try {
       const response = await fetch(
-        `https://outlast-2efa57d39805.herokuapp.com/api/${questName}/`,
+        `https://outlast-quest-338f470aae89.herokuapp.com/api/${questName}/`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
